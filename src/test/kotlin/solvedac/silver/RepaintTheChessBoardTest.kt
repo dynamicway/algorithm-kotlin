@@ -13,8 +13,8 @@ internal class RepaintTheChessBoardTest {
 
         val boardSize = 8
 
-        val white = "W"
-        val black = "B"
+        val white = 'W'
+        val black = 'B'
 
         // then
         assertSoftly { s ->
@@ -28,5 +28,11 @@ internal class RepaintTheChessBoardTest {
             s.assertThat(blackBoard[0][1]).isEqualTo(white)
         }
 
+    }
+
+    @Test
+    fun test() {
+        val test = "8 8".split(" ")
+        test.forEach { println(it) }
     }
 }
