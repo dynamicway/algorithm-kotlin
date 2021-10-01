@@ -4,23 +4,12 @@ class GymSuit {
     fun solution(n: Int, lost: IntArray, reserve: IntArray): Int {
         var answer = 0
 
-        val list = IntArray(n) { 0 }
+        val list = IntArray(n + 2) { 0 }
 
-        lost.forEach { list[it - 1]-- }
-        reserve.forEach { list[it - 1]++ }
-
-        if (list.first() == -1) {
-            if (list[1] == 1) {
-                list[1]--
-                answer++
-            }
-        }
-
-        if (list.last() == -1) {
-            if (list[list.size - 1] == 1) {
-                list[list.size - 1]--
-                answer++
-            }
+        lost.forEach { list[it]-- }
+        reserve.forEach {
+            if (list[it] == -1) answer++
+            list[it]++
         }
 
         for (i: Int in 1..list.size - 2) {
