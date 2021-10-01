@@ -52,4 +52,19 @@ internal class GymSuitTest {
 
     }
 
+    @Test
+    fun test_4() {
+        // given
+        val n = 5
+        val lost = intArrayOf(1, 2, 3, 4, 5)
+        val reserved = intArrayOf(1, 2, 3, 4, 5)
+
+        // when
+        val result = gymSuit.solution(n, lost, reserved)
+
+        // then
+        assertThat(result).isEqualTo(5)
+
+    }
+
 }
