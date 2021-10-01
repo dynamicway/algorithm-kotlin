@@ -37,6 +37,6 @@ class GymSuit {
             }
         }
 
-        return answer
+        return n - (lost.size - answer)
     }
 }
