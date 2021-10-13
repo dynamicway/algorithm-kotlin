@@ -26,7 +26,9 @@ internal class NumberAndStringTest {
                 Pair("one4seveneight", 1478),
                 Pair("23four5six7", 234567),
                 Pair("2three45sixseven", 234567),
-                Pair("123", 123)
+                Pair("123", 123),
+                Pair("sixsixsixsixsixsixsixsix", 66666666),
+                Pair("onetwothreefourfivesixseveneightninezero", 1234567890)
             )
         }
     }
