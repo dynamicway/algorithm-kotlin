@@ -33,6 +33,11 @@ internal class PrinterTest {
                     intArrayOf(1, 1, 9, 1, 1, 1),
                     0,
                     5
+                ),
+                Triple(
+                    intArrayOf(1, 1, 1, 1, 1),
+                    2,
+                    3
                 )
             )
         }
