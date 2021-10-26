@@ -1,8 +1,14 @@
 package programmers.level2
 
+import java.util.*
+
 class TheGreatestNumber {
     fun solution(numbers: IntArray): String {
-        var answer = ""
+        val answer = LinkedList(numbers.map { it.toString() }).sortedWith(
+            kotlin.Comparator { s1, s2 -> (s2 + s1).compareTo(s1 + s2) }
+        ).joinToString(separator = "")
+
+        if (answer[0] == '0') return "0"
         return answer
     }
 }
