@@ -4,8 +4,8 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
-internal class FindDecimalsTest {
-    private val findDecimals = FindDecimals()
+internal class FindPrimeNumbersTest {
+    private val findDecimals = FindPrimeNumbers()
 
     @ParameterizedTest
     @MethodSource("test_src")
