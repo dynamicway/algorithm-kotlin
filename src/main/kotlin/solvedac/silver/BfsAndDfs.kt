@@ -17,7 +17,13 @@ class BfsAndDfs {
             else o1.first - o2.first
         }
 
-        while (bfs.size != info.first) {
+        val set = mutableSetOf<Int>()
+        nodes.forEach {
+            set.add(it.first)
+            set.add(it.second)
+        }
+
+        while (bfs.size != set.size) {
             val node = queue.poll()
             sortedNodes.forEach {
                 if (it.first == node) {

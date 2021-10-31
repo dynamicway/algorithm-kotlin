@@ -53,4 +53,23 @@ internal class BfsAndDfsTest {
 
     }
 
+    @Test
+    fun test_3() {
+        // given
+        val info = Triple(1000, 1, 1000)
+        val nodes = listOf(
+            Pair(999, 1000)
+        )
+
+        // when
+        val result = bfsAndDfs.solution(info, nodes)
+
+        // then
+        assertSoftly { s ->
+            s.assertThat(result.first).isEqualTo(listOf(1000, 999))
+            s.assertThat(result.second).isEqualTo(listOf(1000, 999))
+        }
+
+    }
+
 }
