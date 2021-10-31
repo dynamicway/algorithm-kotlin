@@ -1,6 +1,8 @@
 package solvedac.silver
 
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.SoftAssertions
+import org.assertj.core.api.SoftAssertions.*
 import org.junit.jupiter.api.Test
 
 internal class BfsAndDfsTest {
@@ -23,8 +25,11 @@ internal class BfsAndDfsTest {
         val result = bfsAndDfs.solution(info, nodes)
 
         // then
-        assertThat(result.first).isEqualTo(listOf(1, 2, 4, 3))
-        assertThat(result.second).isEqualTo(listOf(1, 2, 3, 4))
+        assertSoftly { s ->
+            s.assertThat(result.first).isEqualTo(listOf(1, 2, 4, 3))
+            s.assertThat(result.second).isEqualTo(listOf(1, 2, 3, 4))
+
+        }
 
     }
 
