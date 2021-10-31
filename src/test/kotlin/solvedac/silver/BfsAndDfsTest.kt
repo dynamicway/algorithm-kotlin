@@ -1,8 +1,6 @@
 package solvedac.silver
 
-import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.api.SoftAssertions
-import org.assertj.core.api.SoftAssertions.*
+import org.assertj.core.api.SoftAssertions.assertSoftly
 import org.junit.jupiter.api.Test
 
 internal class BfsAndDfsTest {
