@@ -10,13 +10,26 @@ class BfsAndDfs {
 
         queue.add(info.third)
 
+        val sortedNodes = nodes.sortedWith { o1, o2 ->
+            if (o1.first == o2.first) {
+                o1.second - o2.second
+            }
+            else o1.first - o2.first
+        }
+
         while (bfs.size != info.first) {
             val node = queue.poll()
-            nodes.forEach {
+            sortedNodes.forEach {
                 if (it.first == node) {
                     if (!bfs.contains(it.second)) {
                         queue.add(it.second)
                         bfs.add(it.second)
+                    }
+                }
+                if (it.second == node) {
+                    if (!bfs.contains(it.first)) {
+                        queue.add(it.first)
+                        bfs.add(it.first)
                     }
                 }
             }
@@ -28,11 +41,11 @@ class BfsAndDfs {
 
         while (stack.isNotEmpty()) {
 
-            for (i in nodes.indices) {
+            for (i in sortedNodes.indices) {
                 val node = stack.peek()
                 var isAllVisited = true
 
-                val adjacentNodes = nodes.filter { it.first == node || it.second == node }
+                val adjacentNodes = sortedNodes.filter { it.first == node || it.second == node }
 
                 for (j in adjacentNodes.indices) {
                     if (!dfs.contains(adjacentNodes[j].first)) {
