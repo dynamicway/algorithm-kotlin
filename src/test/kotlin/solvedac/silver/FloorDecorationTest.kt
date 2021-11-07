@@ -1,6 +1,7 @@
 package solvedac.silver
 
 import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 internal class FloorDecorationTest {
@@ -17,6 +18,31 @@ internal class FloorDecorationTest {
 
         val actualCount = floorDecoration.solution(givenFloor)
 
-        Assertions.assertThat(actualCount).isEqualTo(4)
+        assertThat(actualCount).isEqualTo(4)
+    }
+
+    /*
+    * -||--||--
+--||--||-
+|--||--||
+||--||--|
+-||--||--
+--||--||-
+    * */
+
+    @Test
+    fun test_2() {
+        val givenFloor = listOf(
+            "-||--||--".toCharArray().toList(),
+            "--||--||-".toCharArray().toList(),
+            "|--||--||".toCharArray().toList(),
+            "||--||--|".toCharArray().toList(),
+            "-||--||--".toCharArray().toList(),
+            "--||--||-".toCharArray().toList()
+        )
+
+        val actualCount = floorDecoration.solution(givenFloor)
+
+        assertThat(actualCount).isEqualTo(31)
     }
 }
