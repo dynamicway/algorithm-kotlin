@@ -1,8 +1,21 @@
 package solvedac.silver
 
-import kotlin.math.floor
-
 // https://www.acmicpc.net/problem/1388
+fun main(): Unit = with(System.`in`.bufferedReader()) {
+    val array = readLine().split(" ").map { it.toInt() }.toIntArray()
+
+    val floor: MutableList<List<Char>> = mutableListOf()
+
+    (0 until array[0]).forEach {
+        floor.add(readLine().toCharArray().toList())
+    }
+
+    val floorDecoration = FloorDecoration()
+
+    println(floorDecoration.solution(floor))
+
+}
+
 class FloorDecoration(
     private val visited: MutableSet<Pair<Int, Int>> = mutableSetOf(),
     private var width: Int = 0,
