@@ -1,9 +1,22 @@
 package solvedac.silver
 
 import java.util.*
-import kotlin.collections.ArrayList
 
 // https://www.acmicpc.net/problem/16173
+fun main() = with(System.`in`.bufferedReader()) {
+    val jumpKingJelly = JumpKingJelly()
+
+    val squareSize = readLine().toInt()
+    val square = mutableListOf<List<Int>>()
+
+    (0 until squareSize).forEach {
+        square.add(readLine().split(" ").map { it.toInt() })
+    }
+
+    println(jumpKingJelly.solution(square))
+
+}
+
 class JumpKingJelly(
     private val visited: MutableList<Pair<Int, Int>> = mutableListOf(),
     private var check: Boolean = false
@@ -14,7 +27,7 @@ class JumpKingJelly(
         stack.add(Pair(0, 0))
         visited.add(Pair(0, 0))
 
-        dfs(square, stack, 3)
+        dfs(square, stack, square.size)
 
         return when (check) {
             true -> "HaruHaru"
@@ -29,7 +42,7 @@ class JumpKingJelly(
             check = true
         if (currentLocation.first + jumpSize < n) {
             val nextLocation = Pair(currentLocation.first + jumpSize, currentLocation.second)
-            if (!visited.contains(nextLocation)){
+            if (!visited.contains(nextLocation)) {
                 visited.add(nextLocation)
                 stack.add(nextLocation)
                 dfs(square, stack, n)
@@ -37,7 +50,7 @@ class JumpKingJelly(
         }
         if (currentLocation.second + jumpSize < n) {
             val nextLocation = Pair(currentLocation.first, currentLocation.second + jumpSize)
-            if (!visited.contains(nextLocation)){
+            if (!visited.contains(nextLocation)) {
                 visited.add(nextLocation)
                 stack.add(nextLocation)
                 dfs(square, stack, n)
