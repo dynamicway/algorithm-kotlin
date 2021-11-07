@@ -19,4 +19,17 @@ internal class JumpKingJellyTest {
 
         assertThat(actualResult).isEqualTo("HaruHaru")
     }
+
+    @Test
+    fun test_2() {
+        val givenSquare = listOf(
+            listOf(2, 2, 1),
+            listOf(2, 2, 2),
+            listOf(1, 2, -1)
+        )
+
+        val actualResult = jumpKingJelly.solution(givenSquare)
+
+        assertThat(actualResult).isEqualTo("Hing")
+    }
 }
