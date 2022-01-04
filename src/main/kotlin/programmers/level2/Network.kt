@@ -1,11 +1,43 @@
 package programmers.level2
 
+import java.util.*
+
 class Network {
+    private val explored = mutableSetOf<Int>()
+    private val search = Stack<Int>()
+
     fun solution(n: Int, computers: Array<IntArray>): Int {
-        // 탐색할 곳이 이미 탐색됐다면 stack에 저장하지 않는다.
-        // 탐색할 곳을 stack에 저장한다
-        // stack에서 하나 pop해서 그래프 탐색
-        // stack이 비어있을 때 까지 반복
-        return 0;
+        var result = 0
+        while (true) {
+
+            if (search.empty()) {
+                val notExploredNode = (0 until n).firstOrNull { !explored.contains(it) } ?: break
+                notExploredNode.let { node ->
+                    searchLinkedNodes(n, computers, node)
+                    explored.add(node)
+                    result++
+                }
+            } else {
+                val node = search.pop()
+                searchLinkedNodes(n, computers, node)
+                explored.add(node)
+            }
+
+        }
+
+        return result
+    }
+
+    private fun searchLinkedNodes(n: Int, computers: Array<IntArray>, node: Int) {
+        (0 until n).forEach { linkedNode ->
+            if (computers[node][linkedNode] == 1) {
+                if (!explored.contains(linkedNode))
+                    search.add(linkedNode)
+            }
+            if (computers[linkedNode][node] == 1) {
+                if (!explored.contains(linkedNode))
+                    search.add(linkedNode)
+            }
+        }
     }
 }
