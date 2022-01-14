@@ -1,6 +1,7 @@
 .gradle/
 .idea/
 .build/
+build/
 *.DS_Store
 .AppleDouble
 .LSOverride
