@@ -1,7 +1,6 @@
 package solvedac.silver
 
 import io.kotest.core.spec.style.FreeSpec
-import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
 class MakeOneKtTest : FreeSpec({
@@ -14,6 +13,10 @@ class MakeOneKtTest : FreeSpec({
 
         "test2" {
             makeOne(10) shouldBe 3
+        }
+
+        "test3" {
+            makeOne(100) shouldBe 7
         }
 
     }
