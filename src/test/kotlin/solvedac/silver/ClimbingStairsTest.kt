@@ -9,6 +9,7 @@ class ClimbingStairsTest : FreeSpec({
     "container" - {
         "test01" {
             val dp = intArrayOf(
+                0,
                 10,
                 20,
                 15,
@@ -18,6 +19,9 @@ class ClimbingStairsTest : FreeSpec({
             )
 
             climbingStairs(dp) shouldBe 75
+        }
+        "test02" {
+
         }
     }
 
