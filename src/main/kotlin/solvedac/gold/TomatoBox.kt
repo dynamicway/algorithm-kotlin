@@ -1,4 +1,4 @@
-package solvedac.silver
+package solvedac.gold
 
 //https://www.acmicpc.net/problem/7576
 fun main() = with(System.`in`.bufferedReader()) {

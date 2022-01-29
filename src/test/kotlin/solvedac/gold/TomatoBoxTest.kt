@@ -1,9 +1,9 @@
-package solvedac.silver
+package solvedac.gold
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 
-class TomatoTest : FreeSpec({
+class TomatoBoxTest : FreeSpec({
     "container" - {
 
         "test1" {
