@@ -15,6 +15,14 @@ class WordConversionTest : FreeSpec({
             ) shouldBe 4
         }
 
+        "test02" {
+            wordConversion(
+                "hit",
+                "cog",
+                arrayOf("hot", "dot", "dog", "lot", "log")
+            ) shouldBe 0
+        }
+
     }
 
 })
