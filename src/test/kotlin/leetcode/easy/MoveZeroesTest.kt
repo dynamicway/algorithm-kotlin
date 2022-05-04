@@ -31,6 +31,12 @@ internal class MoveZeroesTest : FreeSpec({
             nums shouldBe intArrayOf(1, 0, 0, 0)
         }
 
+        "test05" {
+            val nums = intArrayOf(1, 2, 3, 4)
+            moveZeroes(nums)
+            nums shouldBe intArrayOf(1, 2, 3, 4)
+        }
+
     }
 
 })
