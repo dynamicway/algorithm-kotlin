@@ -15,6 +15,10 @@ internal class TwoSumTest: FreeSpec({
             twoSum(intArrayOf(5, 25, 75), 100) shouldBe intArrayOf(2, 3)
         }
 
+        "test03" {
+            twoSum(intArrayOf(0, 1), 1) shouldBe intArrayOf(1, 2)
+        }
+
     }
 
 })
