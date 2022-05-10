@@ -23,6 +23,26 @@ internal class LongestSubstringWithoutRepeatingCharactersTest : FreeSpec({
             lengthOfLongestSubstring("au") shouldBe 2
         }
 
+        "test05" {
+            lengthOfLongestSubstring("pwwkew") shouldBe 3
+        }
+
+        "test06" {
+            lengthOfLongestSubstring("dvdf") shouldBe 3
+        }
+
+        "test07" {
+            lengthOfLongestSubstring("anviaj") shouldBe 5
+        }
+
+        "test08" {
+            lengthOfLongestSubstring("umvejcuuk") shouldBe 6
+        }
+
+        "test09" {
+            lengthOfLongestSubstring("bpfbhmipx") shouldBe 7
+        }
+
     }
 
 })

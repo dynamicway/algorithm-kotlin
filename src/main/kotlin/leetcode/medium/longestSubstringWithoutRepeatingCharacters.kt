@@ -1,21 +1,24 @@
 package leetcode.medium
 
 fun lengthOfLongestSubstring(s: String): Int {
-    val presents = hashSetOf<Char>()
+    val dp = hashMapOf<Char, Int>()
     var result = 0
-    s.indices.forEach {
-        var length = 0
-        presents.clear()
-        for (i in it until s.length) {
-            if (presents.contains(s[i])) {
-                length = presents.size
-                break
+    var startIndex = 0
+
+    s.forEachIndexed { index, c ->
+        if (dp.containsKey(c)) {
+            result = maxOf(result, dp.size)
+            val lastIndex = dp[c]!!
+            s.slice(startIndex until lastIndex).forEach {
+                dp.remove(it)
             }
-            presents.add(s[i])
-            if (i == s.length - 1)
-                length = presents.size
-        }
-        result = maxOf(result, length)
+            startIndex = lastIndex + 1
+            dp[c] = index
+        } else
+            dp[c] = index
     }
+
+    result = maxOf(result, dp.size)
+
     return result
 }
