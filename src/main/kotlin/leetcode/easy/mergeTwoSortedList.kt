@@ -73,5 +73,9 @@ class ListNode(var `val`: Int) {
         return result
     }
 
+    override fun toString(): String {
+        return "ListNode(`val`=$`val`)"
+    }
+
 
 }
