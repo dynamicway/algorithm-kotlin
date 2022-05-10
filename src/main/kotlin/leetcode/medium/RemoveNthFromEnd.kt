@@ -1,22 +1,17 @@
 package leetcode.medium
 
 fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
-    var headNode = head
-    var currentNode = head
-    var preNode = currentNode
-    while (currentNode != null) {
-        var node = currentNode
-        repeat(n) { node = node!!.next }
-        if (node == null) {
-            if (currentNode == headNode) {
-                headNode = headNode.next
-                break
-            }
-            preNode?.next = currentNode.next
-            break
-        }
-        preNode = currentNode
-        currentNode = currentNode.next
+    val result = ListNode(-1).apply { next = head }
+    var fastPoint: ListNode? = result
+    var slowPoint: ListNode? = result
+    repeat(n) {
+        fastPoint = fastPoint?.next
     }
-    return headNode
+    while (fastPoint?.next != null) {
+        fastPoint = fastPoint?.next
+        slowPoint = slowPoint?.next
+    }
+
+    slowPoint?.next = slowPoint?.next?.next
+    return result.next
 }
