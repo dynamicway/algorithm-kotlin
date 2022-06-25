@@ -8,7 +8,7 @@ class NetworkTest : FreeSpec() {
 
     private lateinit var network: Network
 
-    override fun beforeEach(testCase: TestCase) {
+    override suspend fun beforeEach(testCase: TestCase) {
         network = Network()
     }
 
