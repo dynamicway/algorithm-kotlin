@@ -1,3 +1,5 @@
+import java.util.*
+
 object Dijkstra {
 
     fun linearSearch(
@@ -35,6 +37,41 @@ object Dijkstra {
         }
 
         return distances[end]
+    }
+
+    fun priorityQueue(
+        nodes: HashMap<Int, List<Node>>,
+        start: Int
+    ): Array<Int> {
+        val visited = Array(nodes.size) { false }
+        val distances = Array(nodes.size) { Int.MAX_VALUE }
+        val priorityQueue = PriorityQueue<Node>()
+
+        distances[start] = 0
+        priorityQueue.add(Node(start, 0))
+
+        while (priorityQueue.isNotEmpty()) {
+            val currentNode = priorityQueue.poll()
+            if (visited[currentNode.id]) continue
+            visited[currentNode.id] = true
+            nodes[currentNode.id]!!.forEach { adjacencyNode ->
+                val distanceToAdjacencyNodeThroughCurrentNode = distances[currentNode.id] + adjacencyNode.distance
+                if (!visited[adjacencyNode.id] && distances[adjacencyNode.id] > distanceToAdjacencyNodeThroughCurrentNode) {
+                    distances[adjacencyNode.id] = distanceToAdjacencyNodeThroughCurrentNode
+                    priorityQueue.add(Node(adjacencyNode.id, distanceToAdjacencyNodeThroughCurrentNode))
+                }
+            }
+        }
+
+        return distances
+    }
+
+    class Node(
+        val id: Int,
+        val distance: Int
+    ): Comparable<Node> {
+
+        override fun compareTo(other: Node) = this.distance - other.distance
     }
 
 }
