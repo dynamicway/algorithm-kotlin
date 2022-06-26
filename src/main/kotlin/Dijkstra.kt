@@ -1,6 +1,6 @@
 object Dijkstra {
 
-    fun run(
+    fun linearSearch(
         nodes: Array<Array<Int?>>,
         route: Pair<Int, Int>
     ): Int? {

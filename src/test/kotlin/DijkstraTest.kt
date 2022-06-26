@@ -16,7 +16,7 @@ internal class DijkstraTest: FreeSpec({
                 arrayOf(null, null, 5, null, 2, 0)
             )
 
-            Dijkstra.run(nodes, Pair(0, 5)) shouldBe 4
+            Dijkstra.linearSearch(nodes, Pair(0, 5)) shouldBe 4
 
         }
 
@@ -31,7 +31,7 @@ internal class DijkstraTest: FreeSpec({
                 arrayOf(null, null, 5, null, 2, 0)
             )
 
-            Dijkstra.run(nodes, Pair(0, 5)) shouldBe 4
+            Dijkstra.linearSearch(nodes, Pair(0, 5)) shouldBe 4
 
         }
     }
