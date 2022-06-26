@@ -2,9 +2,9 @@ package leetcode.medium
 
 import java.util.LinkedList
 
-fun connect(root: Node?): Node? {
-    val queue1 = LinkedList<Node>()
-    val queue2 = LinkedList<Node>()
+fun connect(root: ConnectNode?): ConnectNode? {
+    val queue1 = LinkedList<ConnectNode>()
+    val queue2 = LinkedList<ConnectNode>()
     root?.let { rootNode ->
         queue1.addFirst(rootNode)
         while (queue1.isNotEmpty()) {
@@ -22,8 +22,8 @@ fun connect(root: Node?): Node? {
     return root
 }
 
-class Node(var `val`: Int) {
-    var left: Node? = null
-    var right: Node? = null
-    var next: Node? = null
+class ConnectNode(var `val`: Int) {
+    var left: ConnectNode? = null
+    var right: ConnectNode? = null
+    var next: ConnectNode? = null
 }
